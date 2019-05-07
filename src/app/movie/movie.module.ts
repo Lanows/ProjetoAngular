@@ -4,16 +4,21 @@ import { MovieComponent } from './movie.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieRoutingModule } from './movie.routing.module';
 import { MovieService } from './movie.service';
+import { MovieEditComponent } from './movie-edit/movie-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     MovieComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    MovieEditComponent,
+
   ],
   imports: [
     CommonModule,
-    MovieRoutingModule
+    MovieRoutingModule,
+    ReactiveFormsModule
   ],
   providers:[
     MovieService

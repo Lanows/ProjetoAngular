@@ -1,17 +1,17 @@
-import { NgModule, Component, Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'country'
 })
 export class CountryPipe implements PipeTransform {
 
-  transform(value: string): string {
-
+  transform(value: any, args?: any): any {
     let str = value;
     let res = str.split(",");
+    let final = res[res.length];
     console.log(res[res.length]);
-    return res[res.length];
-    // return "teste";
+    return final;
+// return "teste";
   }
 
 }

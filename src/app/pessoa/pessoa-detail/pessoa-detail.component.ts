@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PessoaService } from '../pessoa.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-pessoa-detail',
@@ -10,7 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 export class PessoaDetailComponent implements OnInit {
 
   constructor(private _activatedRoute: ActivatedRoute,
-    private _pessoaService: PessoaService) { }
+    private _pessoaService: PessoaService,
+    private _router: Router) { }
 
   pessoa = {}
   
@@ -24,5 +25,9 @@ export class PessoaDetailComponent implements OnInit {
           this.pessoa = response;
         })
     });
+  }
+
+  goEditPessoa(pessoa) {
+    this._router.navigate(['pessoas/detalhes/edit', pessoa.id])
   }
 }

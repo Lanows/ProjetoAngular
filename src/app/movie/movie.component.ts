@@ -26,5 +26,5 @@ export class MovieComponent implements OnInit {
 
     this._router.navigate(['filmes/detalhes', movie.id])
   }
-
+  
 }

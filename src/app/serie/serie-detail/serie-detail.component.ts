@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SerieService } from '../serie.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-serie-detail',
@@ -10,7 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 export class SerieDetailComponent implements OnInit {
 
   constructor(private _activatedRoute: ActivatedRoute,
-    private _serieService: SerieService) { }
+    private _serieService: SerieService,
+    private _router: Router) { }
 
   movie = {}
   ngOnInit() {
@@ -22,5 +23,8 @@ export class SerieDetailComponent implements OnInit {
           this.movie = response;
         })
     });
+  }
+  goEditProgram(movie) {
+    this._router.navigate(['series/detalhes/edit', movie.id])
   }
 }

@@ -4,11 +4,15 @@ import { SerieRoutingModule } from './serie.routing.module';
 import { SerieComponent } from './serie.component';
 import { SerieDetailComponent } from './serie-detail/serie-detail.component';
 import { SerieService } from './serie.service';
+import { SerieEditComponent } from './serie-edit/serie-edit.component';
+
 
 @NgModule({
   declarations: [
     SerieComponent,
-    SerieDetailComponent
+    SerieDetailComponent,
+    SerieEditComponent,
+
   ],
   imports: [
     CommonModule,

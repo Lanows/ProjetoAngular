@@ -28,7 +28,7 @@ import { CountryPipe } from './country.pipe';
     LoginComponent,
     EditarComponent,
     HomeComponent,
-    CountryPipe,
+   
   ],
   imports: [
     BrowserModule,
