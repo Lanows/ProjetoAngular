@@ -7,31 +7,37 @@
   &nbsp;
   <div class="col-12 col-md-7">
     <div class="card">
-      
+
       <div class="card-header">
-      <div class="row">
-      <div class="col">
+        <div class="row">
+          <div class="col">
             <h5 class="card-title">{{ movie?.title }} ({{ movie?.releaseDate | date: 'yyyy'}})</h5>
           </div>
           <div class="col-2">
-            <a [routerLink]="['editar']"><span class="btn btn-primary btn-sm float-right"><a id="btnText">Editar</a></span></a>
-        </div>
-        <div class="col-2.5">
-          <a [routerLink]="['editar']"><span class="btn btn-primary btn-sm float-right"><a id="btnText">Read Only</a></span></a>
-      </div>
-      <div class="col-2">
-        <a [routerLink]="['editar']"><span class="btn btn-primary btn-sm float-right"><a id="btnText">Deletar</a></span></a>
-    </div>
+            <a [routerLink]="['editar']"><span class="btn btn-primary btn-sm float-right"><a
+                  id="btnText">Editar</a></span></a>
+          </div>
+          <div class="col-2.5">
+            <a [routerLink]="['editar']"><span class="btn btn-primary btn-sm float-right"><a id="btnText">Read
+                  Only</a></span></a>
+          </div>
+          <div class="col-2">
+            <a [routerLink]="['editar']"><span class="btn btn-primary btn-sm float-right"><a
+                  id="btnText">Deletar</a></span></a>
+          </div>
         </div>
       </div>
 
       <div class="card-body">
         <p class="card-title text-justify"><strong>Sinopse:</strong> {{ movie?.overview }}</p>
+        <p class="card-title text-justify"><strong>Idioma:</strong> {{ movie?.language }}</p>
+        <p class="card-title text-justify"><strong>Duração:</strong> {{ movie?.runtime }}</p>
+        <p class="card-title text-justify"><strong>País:</strong> {{ movie?.country }}</p>
         <p><strong>Gêneros:</strong> </p>
         <div class="d-inline-block" *ngFor="let genre of movie?.genres">
-            <span class="badge badge-pill badge-primary">{{ genre?.description }}</span>
+          <span class="badge badge-pill badge-primary">{{ genre?.description }}</span>
         </div>
-        <br/>  <br/>
+        <br /> <br />
         <p><strong>Produtoras:</strong> </p>
         <div class="d-inline-block" *ngFor="let company of movie?.production_companies">
           <img src="https://image.tmdb.org/t/p/w50_and_h50_bestv2{{ company.logo_path }}" class="img-thumbnail"

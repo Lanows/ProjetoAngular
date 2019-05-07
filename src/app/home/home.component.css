@@ -18,3 +18,6 @@ h1 {
 .card-img-overlay-bottom{
     text-align: end;
 }
+hr {
+    border-color: #838282;
+}

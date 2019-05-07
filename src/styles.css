@@ -13,3 +13,15 @@
     margin: 0 auto;
 
 }
+
+.card-body{
+    background-color: #1d1f20;
+}
+
+p {
+    color:white;
+}
+
+body{
+    background-color: #1d1f20;
+  }

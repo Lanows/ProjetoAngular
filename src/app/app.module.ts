@@ -18,6 +18,7 @@ import { EditarComponent } from './editar/editar.component';
 import { HomeComponent } from './home/home.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
 import { PessoaService } from './pessoa/pessoa.service';
+import { CountryPipe } from './country.pipe';
 
 
 
@@ -27,6 +28,7 @@ import { PessoaService } from './pessoa/pessoa.service';
     LoginComponent,
     EditarComponent,
     HomeComponent,
+    CountryPipe,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,7 @@ import { PessoaService } from './pessoa/pessoa.service';
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    BrowserModule
+    BrowserModule,
   ],
   providers: [
     AccountService,

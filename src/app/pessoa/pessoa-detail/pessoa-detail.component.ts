@@ -14,6 +14,7 @@ export class PessoaDetailComponent implements OnInit {
 
   pessoa = {}
   
+  
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
       let id = params['id'];
