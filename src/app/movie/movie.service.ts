@@ -22,6 +22,13 @@ export class MovieService extends BaseService {
     return this._httpClient.get(`${this.URL}/movie/6trending`);
   }
 
+  updateProgram(id, filmeAtualizado){
+    return this._httpClient.put(`${this.URL}/movie/${id}`, filmeAtualizado);
+  }
+
+  deleteProgram(id: number){
+    return this._httpClient.delete(`${this.URL}/movie/${id}`);
+  }
   // getTrendingPage(page: number) {
   //   return this._httpClient.get(`${this.URL}/movie/?size=5&page=${page}`)
   // }

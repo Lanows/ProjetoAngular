@@ -33,8 +33,7 @@
           <p class="card-title text-justify"><strong>Cidade:</strong> {{ pessoa?.country | country }}</p>
           <p><strong>Participações:</strong> </p>
           <div class="d-inline-block" *ngFor="let participation of pessoa?.participations">
-            <span class="badge badge-pill badge-primary">{{ participation?.department }} em {{ participation?.id }}</span>
-            {{ participation?.program | json }}
+            <span class="badge badge-pill badge-primary">{{ participation?.department }} em {{ participation?.program?.title }}</span>
           </div>
           <br /> <br />
           <p><strong>Produtoras:</strong> </p>
@@ -46,3 +45,37 @@
       </div>
     </div>
   </div>
+
+  
+<br>
+
+<div class="col-12 col-md-12">
+    <div class="card">
+
+      <div class="card-header">
+        <div class="row">
+          <div class="col">
+            <h3 class="card-title">Filmes</h3>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="container">
+    <div class="col-12 col-md-12">
+        <div class="card-header">
+        <div class="card-columns">
+          <div class="card bg-dark text-white" (click)="goProgram(person.person.id)" *ngFor="let person of pessoa?.participations">
+           <img class="card-img"
+                src="https://image.tmdb.org/t/p/w250_and_h141_face{{ person?.person?.backdropPath }}" alt="_blank" />
+            <div class="card-img-overlay-bottom">
+              <p class="card-title">{{ person?.person?.title }}</p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+      </div>
+</div>

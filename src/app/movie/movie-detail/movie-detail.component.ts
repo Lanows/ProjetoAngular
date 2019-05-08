@@ -27,4 +27,13 @@ export class MovieDetailComponent implements OnInit {
   goEditProgram(movie) {
     this._router.navigate(['filmes/detalhes/edit', movie.id])
   }
+
+  goPerson(id){
+    this._router.navigate(['pessoas/detalhes/', id]);
+  }
+
+  deleteProgram(movie){
+   
+    this._movieService.deleteProgram(movie.id).subscribe();
+  }
 }

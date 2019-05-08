@@ -1,11 +1,22 @@
 <div class="container">
-  <input type="text" placeholder="Teste" class="form-control form-control-lg">
-  <select name="selectType" class="form-control form-control-lg">
-    <option value="0">Filmes</option>
-    <option value="1">Series</option>
-    <option value="2">Pessoas</option>
-  </select>
+
+  <form>
+    <div class="row">
+      <div class="col">
+        <input type="text" placeholder="Insira o nome do que deseja pesquisar" class="form-control" (click)="goSearch(value)">
+      </div>
+      <div class="col-4">
+        <select name="selectType" class="form-control ">
+          <option disabled selected value="0">Selecione o que deseja procurar</option>
+          <option value="1">Filmes</option>
+          <option value="2">Series</option>
+          <option value="3">Pessoas</option>
+        </select>
+      </div>
+    </div>
+  </form>
 </div>
+
 
 <div class="container">
   <br>

@@ -28,6 +28,10 @@ export class PessoaDetailComponent implements OnInit {
   }
 
   goEditPessoa(pessoa) {
-    this._router.navigate(['pessoas/detalhes/edit', pessoa.id])
+    this._router.navigate(['filmes/detalhes/edit', pessoa.id])
+  }
+
+  goProgram(id){
+    this._router.navigate(['pessoas/detalhes/', id]);
   }
 }

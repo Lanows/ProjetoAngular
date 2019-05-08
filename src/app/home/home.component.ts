@@ -48,4 +48,8 @@ export class HomeComponent implements OnInit {
   goEditPessoa(pessoa) {
     this._router.navigate(['pessoas/detalhes', pessoa.id])
   }
+
+  goSearch(value){
+    
+  }
 }

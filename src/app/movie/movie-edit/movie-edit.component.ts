@@ -39,4 +39,8 @@ export class MovieEditComponent implements OnInit {
       // this.editarForm.setValue({titulo: this.movie.title});
       let teste = this.movie;
     }
+
+    updateProgram(movie, filmeAtualizado){
+      this._movieService.updateProgram(movie.id, filmeAtualizado).subscribe();
+    }
   }

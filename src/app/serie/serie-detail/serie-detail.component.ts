@@ -27,4 +27,8 @@ export class SerieDetailComponent implements OnInit {
   goEditProgram(movie) {
     this._router.navigate(['series/detalhes/edit', movie.id])
   }
+
+  goPerson(id){
+    this._router.navigate(['pessoas/detalhes/', id]);
+  }
 }
