@@ -11,7 +11,6 @@ const routes: Routes = [
   { path: 'filmes', loadChildren: './movie/movie.module#MovieModule', canActivate: [AccountGuard] },
   { path: 'series', loadChildren: './serie/serie.module#SerieModule', canActivate: [AccountGuard] },
   { path: 'pessoas', loadChildren: './pessoa/pessoa.module#PessoaModule', canActivate: [AccountGuard] },
-  // { path: 'pessoas', component: PessoaComponent, canActivate: [AccountGuard] },
   { path: ':type/detalhes/:id/editar', component: EditarComponent},
   { path: '', pathMatch: 'full', redirectTo: 'home', canActivate: [AccountGuard] },
   { path: 'login', component: LoginComponent },

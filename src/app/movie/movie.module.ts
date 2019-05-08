@@ -5,7 +5,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieRoutingModule } from './movie.routing.module';
 import { MovieService } from './movie.service';
 import { MovieEditComponent } from './movie-edit/movie-edit.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     MovieRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers:[
     MovieService

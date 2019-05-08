@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-12 col-md-4">
     <div class="card">
-      <img class="card-img" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{ movie.backdropPath }}" alt="">
+      <img class="card-img" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{ movie?.backdropPath }}" alt="">
     </div>
   </div>
   &nbsp;
@@ -16,22 +16,33 @@
 <form [formGroup]="editarForm" (ngSubmit)="submeter()">
 <div class="form-group">
   <strong> <label>Título:</label></strong>
-  <input type="text" value={{movie?.title}}  formControlName="titulo" class="form-control form-control-lg">
+  <input type="text" formControlName="titulo" class="form-control form-control-lg">
   <br>
   <strong> <label>Idioma:</label></strong>
-  <input type="text" value={{movie?.language}}  formControlName="titulo" class="form-control form-control-lg">
+  <input type="text" formControlName="idioma" class="form-control form-control-lg">
   <br>
   <strong> <label>Duração:</label></strong>
-  <input type="number" value={{movie?.runtime}}  formControlName="titulo" class="form-control form-control-lg">
+  <input type="number" formControlName="duracao" class="form-control form-control-lg">
   <br>
   <strong> <label>País:</label></strong>
-  <input type="text" value={{movie?.country}}  formControlName="titulo" class="form-control form-control-lg">
+  <input type="text" formControlName="pais" class="form-control form-control-lg">
   <br>
   <strong>  <label>Lançamento:</label></strong>
-  <input type="date" value={{movie?.releaseDate}} formControlName="ano" class="form-control form-control-lg">
+  <input type="date" formControlName="lancamento" class="form-control form-control-lg">
 <br>
   <strong><label>Sinopse:</label></strong>
-  <textarea value={{movie.overview}} formControlName="sinopse" class="form-control form-control-lg" rows="10" cols="70"></textarea>
+  <textarea formControlName="sinopse" class="form-control form-control-lg" rows="10" cols="70"></textarea>
+  
+  <strong> <label>Gêneros:</label></strong>
+  <input *ngFor="let genre of editarForm.get('generos').controls, let i = index"
+  [value]="this.movie.genres[i].description" type="text"
+  class="form-control form-control-lg" (input)="this.filmeAtualizado.genres[i].description = $event.target.value"/>
+  
+  <strong> <label>Participação:</label></strong>
+  <input *ngFor="let participation of editarForm.get('participacao').controls, let i = index"
+  [value]="this.movie.participations[i].person.name" type="text"
+  class="form-control form-control-lg" (input)="this.filmeAtualizado.participations[i].person.name = $event.target.value"/>
+  
 </div>
 
 

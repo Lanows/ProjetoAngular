@@ -67,10 +67,10 @@
         <div class="card-header">
         <div class="card-columns">
           <div class="card bg-dark text-white" (click)="goProgram(person.person.id)" *ngFor="let person of pessoa?.participations">
-           <img class="card-img"
-                src="https://image.tmdb.org/t/p/w250_and_h141_face{{ person?.person?.backdropPath }}" alt="_blank" />
+            <img class="card-img"
+                src="https://image.tmdb.org/t/p/w250_and_h141_face{{ person?.program?.backdropPath }}" alt="_blank" />
             <div class="card-img-overlay-bottom">
-              <p class="card-title">{{ person?.person?.title }}</p>
+              <p class="card-title">{{ person?.program?.title }}</p>
             </div>
           </div>
         </div>
@@ -79,3 +79,4 @@
       </div>
       </div>
 </div>
+
