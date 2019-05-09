@@ -12,6 +12,7 @@ export class PessoaComponent implements OnInit {
   constructor(private _pessoaService: PessoaService, private _router: Router) { }
 
   pessoas = [];
+  search;
 
   ngOnInit() {
     this._pessoaService.getTrending().subscribe(
@@ -24,5 +25,17 @@ export class PessoaComponent implements OnInit {
   goEdit(pessoa) {
     this._router.navigate(['pessoas/detalhes', pessoa.id])
   }
+  goSearch(value){
+    if(this.search == "nome") {
+        this._pessoaService.getPersonByName(value).subscribe(
+          response => {
+            this.pessoas = response['content'];
+          }
+        )
+    }
+  }
 
+  funcaoSelect(value){
+    this.search =value;
+  }
 }

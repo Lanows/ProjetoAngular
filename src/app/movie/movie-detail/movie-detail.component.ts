@@ -1,6 +1,7 @@
 import { MovieService } from '../movie.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-movie-detail',
@@ -33,7 +34,10 @@ export class MovieDetailComponent implements OnInit {
   }
 
   deleteProgram(movie){
-   
-    this._movieService.deleteProgram(movie.id).subscribe();
+   let deletar = confirm("Tem certeza que deseja deletar esse filme?");
+   if(deletar){
+      this._movieService.deleteProgram(movie.id).subscribe();
+      this._router.navigate(['filmes']);
+   }
   }
 }

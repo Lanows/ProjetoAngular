@@ -29,7 +29,16 @@ export class MovieService extends BaseService {
   deleteProgram(id: number){
     return this._httpClient.delete(`${this.URL}/movie/${id}`);
   }
-  // getTrendingPage(page: number) {
-  //   return this._httpClient.get(`${this.URL}/movie/?size=5&page=${page}`)
-  // }
+
+  getMovieByTitle(title){
+    return this._httpClient.get(`${this.URL}/movie/title?title=${title}`);
+  }
+
+  getMovieByLanguage(language) {
+    return this._httpClient.get(`${this.URL}/movie/language?language=${language}`);
+  }
+
+  getMovieByReleaseDate(date) {
+    return this._httpClient.get(`${this.URL}/movie/releasedate?date=${date}`);
+  }
 }

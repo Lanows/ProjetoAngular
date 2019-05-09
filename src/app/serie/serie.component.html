@@ -1,3 +1,24 @@
+<div class="container">
+
+  <form>
+    <div class="row">
+      <div class="col">
+        <input type="text" placeholder="Insira o nome do que deseja pesquisar" class="form-control" (input)="goSearch($event.target.value)">
+      </div>
+      <div class="col-4">
+        <select name="selectType" class="form-control" (change)="funcaoSelect($event.target.value)">
+          <option disabled selected value="0">Selecione que atributo deseja procurar</option>
+          <option value="titulo">Título</option>
+          <option value="ano">Ano</option>
+          <option value="lingua">Língua</option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+
+<br>
+
 <div class="col-12">
   <div class="card-columns">
     <div class="card bg-dark text-white" (click)="goEdit(serie)" *ngFor="let serie of series">

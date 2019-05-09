@@ -6,6 +6,7 @@ import { PessoaComponent } from './pessoa.component';
 import { PessoaDetailComponent } from './pessoa-detail/pessoa-detail.component';
 import { PessoaService } from './pessoa.service';
 import { PessoaEditComponent } from './pessoa-edit/pessoa-edit.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { PessoaEditComponent } from './pessoa-edit/pessoa-edit.component';
   ],
   imports: [
     CommonModule,
-    PessoaRoutingModule
+    PessoaRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     PessoaService

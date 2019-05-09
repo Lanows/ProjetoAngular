@@ -21,7 +21,7 @@
               <a [routerLink]="['editar']"><span class="btn btn-primary btn-sm float-right"><a id="btnText">Read Only</a></span></a>
           </div>
           <div class="col-2">
-            <a [routerLink]="['editar']"><span class="btn btn-primary btn-sm float-right"><a id="btnText">Deletar</a></span></a>
+            <a (click)="deleteProgram(movie)"><span class="btn btn-primary btn-sm float-right"><a id="btnText">Deletar</a></span></a>
         </div>
             </div>
           </div>

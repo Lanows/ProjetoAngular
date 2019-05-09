@@ -5,6 +5,7 @@ import { SerieComponent } from './serie.component';
 import { SerieDetailComponent } from './serie-detail/serie-detail.component';
 import { SerieService } from './serie.service';
 import { SerieEditComponent } from './serie-edit/serie-edit.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,9 @@ import { SerieEditComponent } from './serie-edit/serie-edit.component';
   ],
   imports: [
     CommonModule,
-    SerieRoutingModule
+    SerieRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     SerieService

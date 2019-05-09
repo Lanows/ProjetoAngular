@@ -20,4 +20,15 @@ export class PessoaService extends BaseService {
   getSixTrending() {
     return this._httpClient.get(`${this.URL}/person/6trending`);
   }
+  updatePerson(id, pessoaAtualizado){
+    return this._httpClient.put(`${this.URL}/person/${id}`, pessoaAtualizado);
+  }
+
+  deletePerson(id: number){
+    return this._httpClient.delete(`${this.URL}/person/${id}`);
+  }
+
+  getPersonByName(name){
+    return this._httpClient.get(`${this.URL}/person/name?name=${name}`);
+  }
 }

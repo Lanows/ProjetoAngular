@@ -20,4 +20,24 @@ export class SerieService extends BaseService {
   getSixTrending() {
     return this._httpClient.get(`${this.URL}/tv/6trending`);
   }
+
+  updateProgram(id, serieAtualizado){
+    return this._httpClient.put(`${this.URL}/tv/${id}`, serieAtualizado);
+  }
+
+  deleteProgram(id: number){
+    return this._httpClient.delete(`${this.URL}/tv/${id}`);
+  }
+
+  getTvSerieByTitle(title){
+    return this._httpClient.get(`${this.URL}/tv/title?title=${title}`);
+  }
+
+  getTvSerieByLanguage(language) {
+    return this._httpClient.get(`${this.URL}/tv/language?language=${language}`);
+  }
+
+  getTvSerieByReleaseDate(date) {
+    return this._httpClient.get(`${this.URL}/tv/releasedate?date=${date}`);
+  }
 }

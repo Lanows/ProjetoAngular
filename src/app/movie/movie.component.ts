@@ -13,6 +13,7 @@ export class MovieComponent implements OnInit {
     private _router: Router) { }
 
   movies = [];
+  search;
 
   ngOnInit() {
     this._movieService.getTrending().subscribe(
@@ -28,6 +29,30 @@ export class MovieComponent implements OnInit {
   }
   
   goSearch(value){
-    
+    if(this.search == "titulo") {
+        this._movieService.getMovieByTitle(value).subscribe(
+          response => {
+            this.movies = response['content'];
+          }
+        )
+    }
+    else if(this.search == "ano") {
+      this._movieService.getMovieByReleaseDate(value).subscribe(
+        response => {
+          this.movies = response['content'];
+        }
+      )
+    }
+    else if (this.search == "lingua") {
+      this._movieService.getMovieByLanguage(value).subscribe(
+        response => {
+          this.movies = response['content'];
+        }
+      )
+    }  
+  }
+
+  funcaoSelect(value){
+    this.search =value;
   }
 }

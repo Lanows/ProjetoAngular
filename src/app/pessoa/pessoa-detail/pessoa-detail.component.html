@@ -21,7 +21,7 @@
                 <a [routerLink]="['editar']"><span class="btn btn-primary btn-sm float-right"><a id="btnText">Read Only</a></span></a>
             </div>
             <div class="col-2">
-              <a [routerLink]="['editar']"><span class="btn btn-primary btn-sm float-right"><a id="btnText">Deletar</a></span></a>
+              <a (click)="deletePerson(pessoa)"><span class="btn btn-primary btn-sm float-right"><a id="btnText">Deletar</a></span></a>
           </div>
               </div>
             </div>
@@ -30,10 +30,10 @@
           <p class="card-title text-justify"><strong>Gênero:</strong> {{ pessoa?.gender }}</p>
           <p class="card-title text-justify"><strong>Altura:</strong> {{ pessoa?.height }}</p>
           <p class="card-title text-justify"><strong>País:</strong> {{ pessoa?.hometown }}</p>
-          <p class="card-title text-justify"><strong>Cidade:</strong> {{ pessoa?.country | country }}</p>
+          <p class="card-title text-justify"><strong>Cidade:</strong> {{ pessoa?.country }}</p>
           <p><strong>Participações:</strong> </p>
           <div class="d-inline-block" *ngFor="let participation of pessoa?.participations">
-            <span class="badge badge-pill badge-primary">{{ participation?.department }} em {{ participation?.program?.title }}</span>
+            <span class="badge badge-pill badge-primary">{{ participation?.department }} em {{ participation?.id }}</span>
           </div>
           <br /> <br />
           <p><strong>Produtoras:</strong> </p>
