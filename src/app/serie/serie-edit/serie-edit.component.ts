@@ -2,6 +2,7 @@ import { SerieService } from './../serie.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-serie-edit',
@@ -13,7 +14,8 @@ export class SerieEditComponent implements OnInit {
   constructor(private _activatedRoute: ActivatedRoute,
     private _serieService: SerieService,
     private formBuilder: FormBuilder,
-    private _router: Router) { }
+    private _router: Router,
+    private location: Location) { }
 
     movie;
     filmeAtualizado = {}
@@ -21,6 +23,7 @@ export class SerieEditComponent implements OnInit {
     
     editarForm : FormGroup = this.formBuilder.group({
       titulo: [''],
+      temporada: [''],
       idioma: [''],
       duracao: [''],
       pais: [''],
@@ -44,11 +47,12 @@ export class SerieEditComponent implements OnInit {
 
     updateProgram(movie, filmeAtualizado){
       this._serieService.updateProgram(movie.id, filmeAtualizado).subscribe();
-      this._router.navigate(['filmes/detalhes', movie.id])
+      this.location.back();
     }
 
     formulario(){
       this.editarForm.controls['titulo'].setValue(this.movie.title); 
+      this.editarForm.controls['temporada'].setValue(this.movie.seasons); ;
       this.editarForm.controls['idioma'].setValue(this.movie.language);
       this.editarForm.controls['duracao'].setValue(this.movie.runtime);
       this.editarForm.controls['pais'].setValue(this.movie.country);

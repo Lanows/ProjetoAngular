@@ -13,36 +13,42 @@
 
       <div class="card-body">
 
-<form [formGroup]="editarForm" (ngSubmit)="submeter()">
+<form [formGroup]="editarForm" (ngSubmit)="updateProgram(movie, filmeAtualizado)">
 <div class="form-group">
   <strong> <label>Título:</label></strong>
-  <input type="text" formControlName="titulo" class="form-control form-control-lg">
+  <input type="text" formControlName="titulo" class="form-control form-control-lg"
+  (input)="this.filmeAtualizado.title = $event.target.value">
   <br>
   <strong> <label>Idioma:</label></strong>
-  <input type="text" formControlName="idioma" class="form-control form-control-lg">
+  <input type="text" formControlName="idioma" class="form-control form-control-lg"
+  (input)="this.filmeAtualizado.language = $event.target.value">
   <br>
   <strong> <label>Duração:</label></strong>
-  <input type="number" formControlName="duracao" class="form-control form-control-lg">
+  <input type="number" formControlName="duracao" class="form-control form-control-lg"
+  (input)="this.filmeAtualizado.runtime = $event.target.value">
   <br>
   <strong> <label>País:</label></strong>
-  <input type="text" formControlName="pais" class="form-control form-control-lg">
+  <input type="text" formControlName="pais" class="form-control form-control-lg"
+  (input)="this.filmeAtualizado.country = $event.target.value">
   <br>
   <strong>  <label>Lançamento:</label></strong>
-  <input type="date" formControlName="lancamento" class="form-control form-control-lg">
+  <input type="date" formControlName="lancamento" class="form-control form-control-lg"
+  (input)="this.filmeAtualizado.releaseDate = $event.target.value">
 <br>
   <strong><label>Sinopse:</label></strong>
-  <textarea formControlName="sinopse" class="form-control form-control-lg" rows="10" cols="70"></textarea>
+  <textarea formControlName="sinopse" class="form-control form-control-lg" rows="10" cols="70"
+  (input)="this.filmeAtualizado.overview = $event.target.value"></textarea>
   
   <strong> <label>Gêneros:</label></strong>
   <input *ngFor="let genre of editarForm.get('generos').controls, let i = index"
   [value]="this.movie.genres[i].description" type="text"
   class="form-control form-control-lg" (input)="this.filmeAtualizado.genres[i].description = $event.target.value"/>
   
-  <strong> <label>Participação:</label></strong>
+  <!-- <strong> <label>Participação:</label></strong>
   <input *ngFor="let participation of editarForm.get('participacao').controls, let i = index"
   [value]="this.movie.participations[i].person.name" type="text"
   class="form-control form-control-lg" (input)="this.filmeAtualizado.participations[i].person.name = $event.target.value"/>
-  
+   -->
 </div>
 
 

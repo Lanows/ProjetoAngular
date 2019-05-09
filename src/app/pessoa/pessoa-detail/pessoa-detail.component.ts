@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { PessoaService } from '../pessoa.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,7 +12,8 @@ export class PessoaDetailComponent implements OnInit {
 
   constructor(private _activatedRoute: ActivatedRoute,
     private _pessoaService: PessoaService,
-    private _router: Router) { }
+    private _router: Router,
+    private  location: Location){ }
 
   pessoa = {}
   
@@ -39,7 +41,11 @@ export class PessoaDetailComponent implements OnInit {
     let deletar = confirm("Tem certeza que deseja deletar essa Pessoa?");
     if(deletar){
        this._pessoaService.deletePerson(pessoa.id).subscribe();
-       this._router.navigate(['pessoas']);
+       this.location.back();
     }
+   }
+
+   getParticipation(){
+    let deletar = confirm("Teste da função?");
    }
 }

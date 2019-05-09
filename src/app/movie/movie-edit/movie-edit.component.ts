@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../movie.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-movie-edit',
@@ -13,7 +14,8 @@ export class MovieEditComponent implements OnInit {
   constructor(private _activatedRoute: ActivatedRoute,
     private _movieService: MovieService,
     private formBuilder: FormBuilder,
-    private _router: Router) { }
+    private _router: Router,
+    private location: Location) { }
 
     movie;
     filmeAtualizado = {}
@@ -43,7 +45,8 @@ export class MovieEditComponent implements OnInit {
 
     updateProgram(movie, filmeAtualizado){
       this._movieService.updateProgram(movie.id, filmeAtualizado).subscribe();
-      this._router.navigate(['filmes/detalhes', movie.id])
+      console.log(this.filmeAtualizado);
+      this.location.back();
     }
 
     formulario(){
@@ -58,9 +61,9 @@ export class MovieEditComponent implements OnInit {
         (<FormArray>this.editarForm.get("generos")).push(this.addOtherSkillFormGroup(genre.description));
       })
 
-      this.movie.participations.forEach(participation =>{
-        (<FormArray>this.editarForm.get("participacao")).push(this.addOtherSkillFormGroup(participation.person.name));
-      })
+      // this.movie.participations.forEach(participation =>{
+      //   (<FormArray>this.editarForm.get("participacao")).push(this.addOtherSkillFormGroup(participation.person.name));
+      // })
     }
 
     addOtherSkillFormGroup(texto: string): FormGroup {

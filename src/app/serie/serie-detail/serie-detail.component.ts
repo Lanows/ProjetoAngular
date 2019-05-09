@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { SerieService } from '../serie.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,7 +12,8 @@ export class SerieDetailComponent implements OnInit {
 
   constructor(private _activatedRoute: ActivatedRoute,
     private _serieService: SerieService,
-    private _router: Router) { }
+    private _router: Router,
+    private location: Location) { }
 
   movie = {}
   ngOnInit() {
@@ -35,7 +37,7 @@ export class SerieDetailComponent implements OnInit {
     let deletar = confirm("Tem certeza que deseja deletar essa Serie?");
     if(deletar){
        this._serieService.deleteProgram(movie.id).subscribe();
-       this._router.navigate(['series']);
+       this.location.back();
     }
    }
 }

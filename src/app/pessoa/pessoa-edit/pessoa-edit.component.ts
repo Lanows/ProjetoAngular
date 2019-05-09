@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { PessoaService } from '../pessoa.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,7 +14,8 @@ export class PessoaEditComponent implements OnInit {
   constructor(private _activatedRoute: ActivatedRoute,
     private _pessoaService: PessoaService,
     private formBuilder: FormBuilder,
-    private _router: Router) { }
+    private _router: Router,
+    private location: Location) { }
 
     pessoa;
     pessoaAtualizado = {}
@@ -41,7 +43,7 @@ export class PessoaEditComponent implements OnInit {
 
     updateProgram(pessoa, pessoaAtualizado){
       this._pessoaService.updatePerson(pessoa.id, pessoaAtualizado).subscribe();
-      this._router.navigate(['pessoas/detalhes', pessoa.id])
+      this.location.back();
     }
 
     formulario(){

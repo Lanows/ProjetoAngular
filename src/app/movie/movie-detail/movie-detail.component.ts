@@ -1,7 +1,7 @@
+import { Location } from '@angular/common';
 import { MovieService } from '../movie.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-movie-detail',
@@ -12,7 +12,8 @@ export class MovieDetailComponent implements OnInit {
 
   constructor(private _activatedRoute: ActivatedRoute,
     private _movieService: MovieService,
-    private _router: Router) { }
+    private _router: Router,
+    private location: Location) { }
     
   movie = {}
   ngOnInit() {
@@ -37,7 +38,7 @@ export class MovieDetailComponent implements OnInit {
    let deletar = confirm("Tem certeza que deseja deletar esse filme?");
    if(deletar){
       this._movieService.deleteProgram(movie.id).subscribe();
-      this._router.navigate(['filmes']);
+      this.location.back();
    }
   }
 }
