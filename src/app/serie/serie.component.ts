@@ -13,13 +13,34 @@ export class SerieComponent implements OnInit {
 
   series = [];
   search;
+  totalElements: number;
+  size: number;
+  page: number = 0;
 
   ngOnInit() {
-    this._serieService.getTrending().subscribe(
+
+    this.getPageableProgram(0);
+
+  }
+
+  
+  getPageableProgram(page){
+    this._serieService.getTrending(page).subscribe(
       response => {
         this.series = response['content'];
+        this.totalElements = response['totalElements'];
+        this.size = response['size'];
       }
     )
+  }
+
+  pageChanged(pageChange){
+    if(pageChange != 0){
+      this.page = pageChange;
+      this.getPageableProgram(this.page);
+    } else {
+      this.getPageableProgram(1);
+    }
   }
 
   goEdit(serie) {

@@ -10,8 +10,8 @@ export class MovieService extends BaseService {
   }
 
 
-  getTrending() {
-    return this._httpClient.get(`${this.URL}/movie/`)
+  getTrending(page) {
+    return this._httpClient.get(`${this.URL}/movie/?size=12&page=${page}`)
   }
 
   getById(id: string) {

@@ -9,8 +9,8 @@ export class PessoaService extends BaseService {
     super(httpClient);
   }
 
-  getTrending() {
-    return this._httpClient.get(`${this.URL}/person/`)
+  getTrending(page) {
+    return this._httpClient.get(`${this.URL}/person/?size=12&page=${page}`)
   }
 
   getById(id: string) {

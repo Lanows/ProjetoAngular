@@ -14,13 +14,35 @@ export class MovieComponent implements OnInit {
 
   movies = [];
   search;
+  totalElements: number;
+  size: number;
+  page: number = 0;
+
 
   ngOnInit() {
-    this._movieService.getTrending().subscribe(
+    this.getPageableProgram(0);
+  }
+
+  
+
+  getPageableProgram(page){
+    this._movieService.getTrending(page).subscribe(
       response => {
         this.movies = response['content'];
+        this.totalElements = response['totalElements'];
+        this.size = response['size'];
+        this.page = response['pageable']['pageNumber'];
       }
     )
+  }
+
+  pageChanged(pageChange){
+    if(pageChange != 0){
+      this.page = pageChange;
+      this.getPageableProgram(this.page);
+    } else {
+      this.getPageableProgram(0);
+    }
   }
 
   goEdit(movie) {

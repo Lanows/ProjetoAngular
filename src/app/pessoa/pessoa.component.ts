@@ -13,13 +13,33 @@ export class PessoaComponent implements OnInit {
 
   pessoas = [];
   search;
+  totalElements: number;
+  size: number;
+  page: number = 0;
+
 
   ngOnInit() {
-    this._pessoaService.getTrending().subscribe(
+
+    this.getPageablePerson(0);
+  }
+  
+  getPageablePerson(page){
+    this._pessoaService.getTrending(page).subscribe(
       response => {
         this.pessoas = response['content'];
+        this.totalElements = response['totalElements'];
+        this.size = response['size'];
       }
     )
+  }
+
+  pageChanged(pageChange){
+    if(pageChange != 0){
+      this.page = pageChange;
+      this.getPageablePerson(this.page);
+    } else {
+      this.getPageablePerson(1);
+    }
   }
 
   goEdit(pessoa) {

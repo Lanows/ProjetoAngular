@@ -9,8 +9,8 @@ export class SerieService extends BaseService {
     super(httpClient);
   }
 
-  getTrending() {
-    return this._httpClient.get(`${this.URL}/tv/`)
+  getTrending(page) {
+    return this._httpClient.get(`${this.URL}/tv/?size=12&page=${page}`)
   }
 
   getById(id: string) {

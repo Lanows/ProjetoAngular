@@ -30,3 +30,5 @@
     </div>
   </div>
 </div>
+
+<ngb-pagination class="d-flex justify-content-center" (pageChange)="pageChanged($event)"  [collectionSize]="totalElements" [(page)]="page" [pageSize]="size" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
