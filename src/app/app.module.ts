@@ -14,21 +14,18 @@ import { AccountGuard } from './guards/account.guard';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { LoginComponent } from './login/login.component';
-import { EditarComponent } from './editar/editar.component';
 import { HomeComponent } from './home/home.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
 import { PessoaService } from './pessoa/pessoa.service';
-import { CountryPipe } from './country.pipe';
-
+import { ParticipacaoProgramasComponent } from './participacao-programas/participacao-programas.component';
+import { ParticipacaoTvseriesComponent } from './participacao-tvseries/participacao-tvseries.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    EditarComponent,
     HomeComponent,
-   
   ],
   imports: [
     BrowserModule,
@@ -50,6 +47,7 @@ import { CountryPipe } from './country.pipe';
     PessoaService,
     Title
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

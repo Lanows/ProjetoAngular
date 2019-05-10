@@ -41,4 +41,8 @@ export class MovieService extends BaseService {
   getMovieByReleaseDate(date) {
     return this._httpClient.get(`${this.URL}/movie/releasedate?date=${date}`);
   }
+
+  getParticipation(id){
+    return this._httpClient.get(`${this.URL}/movie/participation?id=${id}`);
+  }
 }

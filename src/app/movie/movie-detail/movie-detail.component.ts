@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { MovieService } from '../movie.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -10,6 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class MovieDetailComponent implements OnInit {
 
+  @Input() id: string;
+  @Input() department: any;
+  
   constructor(private _activatedRoute: ActivatedRoute,
     private _movieService: MovieService,
     private _router: Router,

@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PessoaService } from '../pessoa.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -33,19 +33,11 @@ export class PessoaDetailComponent implements OnInit {
     this._router.navigate(['pessoas/detalhes/edit', pessoa.id])
   }
 
-  goProgram(id){
-    this._router.navigate(['pessoas/detalhes/', id]);
-  }
-
   deletePerson(pessoa){
     let deletar = confirm("Tem certeza que deseja deletar essa Pessoa?");
     if(deletar){
        this._pessoaService.deletePerson(pessoa.id).subscribe();
        this.location.back();
     }
-   }
-
-   getParticipation(){
-    let deletar = confirm("Teste da função?");
    }
 }

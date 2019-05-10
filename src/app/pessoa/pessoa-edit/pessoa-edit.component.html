@@ -1,7 +1,8 @@
 <div class="row">
   <div class="col-12 col-md-4">
     <div class="card">
-      <img class="card-img" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{ pessoa?.profilePath }}" alt="">
+      <img class="card-img" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{ pessoa?.profilePath }}" 
+      onerror="this.src='./../../../../assets/default-staff-2.jpg'" alt="">
     </div>
   </div>
   &nbsp;
@@ -13,22 +14,27 @@
 
       <div class="card-body">
 
-<form [formGroup]="editarForm" (ngSubmit)="submeter()">
+<form [formGroup]="editarForm" (ngSubmit)="updateProgram(pessoa, pessoaAtualizado)">
 <div class="form-group">
-  <strong> <label>Título:</label></strong>
-  <input type="text" formControlName="nome" class="form-control form-control-lg">
+  <strong> <label>Nome:</label></strong>
+  <input type="text" formControlName="nome" class="form-control form-control-lg"
+  (input)="this.pessoaAtualizado.name = $event.target.value">
   <br>
-  <strong> <label>Idioma:</label></strong>
-  <input type="text" formControlName="genero" class="form-control form-control-lg">
+  <strong> <label>Gênero:</label></strong>
+  <input type="text" formControlName="genero" class="form-control form-control-lg"
+  (input)="this.pessoaAtualizado.gender = $event.target.value">
   <br>
-  <strong> <label>Duração:</label></strong>
-  <input type="number" formControlName="altura" class="form-control form-control-lg">
+  <strong> <label>Altura:</label></strong>
+  <input type="number" formControlName="altura" class="form-control form-control-lg"
+  (input)="this.pessoaAtualizado.height = $event.target.value">
   <br>
   <strong> <label>País:</label></strong>
-  <input type="text" formControlName="pais" class="form-control form-control-lg">
+  <input type="text" formControlName="pais" class="form-control form-control-lg"
+  (input)="this.pessoaAtualizado.country = $event.target.value">
   <br>
-  <strong>  <label>Lançamento:</label></strong>
-  <input type="text" formControlName="cidade" class="form-control form-control-lg">
+  <strong>  <label>Cidade:</label></strong>
+  <input type="text" formControlName="cidade" class="form-control form-control-lg"
+  (input)="this.pessoaAtualizado.hometown = $event.target.value">
 <br>
 
   <strong> <label>Participação:</label></strong>

@@ -1,0 +1,8 @@
+
+<img class="card-img"
+                src="https://image.tmdb.org/t/p/w250_and_h141_face{{ pessoa?.profilePath }}" 
+                onerror="this.src='./../../../../assets/default-staff-2.jpg'" alt="_blank" 
+                (click)="goPerson(pessoa?.id)"/>
+            <div class="card-img-overlay-bottom">
+              <p class="card-title"> {{ pessoa?.name }}: {{ department.department }}</p>
+            </div>

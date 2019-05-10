@@ -1,7 +1,8 @@
 <div class="row">
   <div class="col-12 col-md-4">
     <div class="card">
-      <img class="card-img" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{ movie?.backdropPath }}" alt="">
+      <img class="card-img" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{ movie?.backdropPath }}" 
+      onerror="this.src='./../../../../assets/default-staff-2.jpg'" alt="">
     </div>
   </div>
   &nbsp;
@@ -13,28 +14,35 @@
 
       <div class="card-body">
 
-<form [formGroup]="editarForm" (ngSubmit)="submeter()">
+<form [formGroup]="editarForm" (ngSubmit)="updateProgram(movie, filmeAtualizado)">
 <div class="form-group">
   <strong> <label>Título:</label></strong>
-  <input type="text" formControlName="titulo" class="form-control form-control-lg">
+  <input type="text" formControlName="titulo" class="form-control form-control-lg"
+  (input)="this.filmeAtualizado.title = $event.target.value">
   <br>
   <strong> <label>Temporada:</label></strong>
-  <input type="text" formControlName="temporada" class="form-control form-control-lg">
+  <input type="text" formControlName="temporada" class="form-control form-control-lg"
+  (input)="this.filmeAtualizado.temporada = $event.target.value">
   <br>
   <strong> <label>Idioma:</label></strong>
-  <input type="text" formControlName="idioma" class="form-control form-control-lg">
+  <input type="text" formControlName="idioma" class="form-control form-control-lg"
+  (input)="this.filmeAtualizado.language = $event.target.value">
   <br>
   <strong> <label>Duração:</label></strong>
-  <input type="number" formControlName="duracao" class="form-control form-control-lg">
+  <input type="number" formControlName="duracao" class="form-control form-control-lg"
+  (input)="this.filmeAtualizado.runtime = $event.target.value">
   <br>
   <strong> <label>País:</label></strong>
-  <input type="text" formControlName="pais" class="form-control form-control-lg">
+  <input type="text" formControlName="pais" class="form-control form-control-lg"
+  (input)="this.filmeAtualizado.country = $event.target.value">
   <br>
   <strong>  <label>Lançamento:</label></strong>
-  <input type="date" formControlName="lancamento" class="form-control form-control-lg">
+  <input type="date" formControlName="lancamento" class="form-control form-control-lg"
+  (input)="this.filmeAtualizado.releaseDate = $event.target.value">
 <br>
   <strong><label>Sinopse:</label></strong>
-  <textarea formControlName="sinopse" class="form-control form-control-lg" rows="10" cols="70"></textarea>
+  <textarea formControlName="sinopse" class="form-control form-control-lg" rows="10" cols="70"
+  (input)="this.filmeAtualizado.overview = $event.target.value"></textarea>
   
   <strong> <label>Gêneros:</label></strong>
   <input *ngFor="let genre of editarForm.get('generos').controls, let i = index"

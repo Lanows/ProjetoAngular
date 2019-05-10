@@ -43,6 +43,7 @@ export class PessoaEditComponent implements OnInit {
 
     updateProgram(pessoa, pessoaAtualizado){
       this._pessoaService.updatePerson(pessoa.id, pessoaAtualizado).subscribe();
+      console.log(this.pessoaAtualizado);
       this.location.back();
     }
 

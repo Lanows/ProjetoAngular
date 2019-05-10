@@ -22,7 +22,8 @@
 <div class="col-12">
   <div class="card-columns">
     <div class="card bg-dark text-white" (click)="goEdit(serie)" *ngFor="let serie of series">
-      <img class="card-img" src="https://image.tmdb.org/t/p/w250_and_h141_face{{ serie?.backdropPath }}" alt="_blank" />
+      <img class="card-img" src="https://image.tmdb.org/t/p/w250_and_h141_face{{ serie?.backdropPath }}" 
+      onerror="this.src='./../../../../assets/default-staff-2.jpg'" alt="_blank" />
       <div class="card-img-overlay-bottom">
         <p class="card-title">{{ serie?.title }}</p>
       </div>

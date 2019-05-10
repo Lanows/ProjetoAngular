@@ -1,77 +1,71 @@
 <div class="row">
-    <div class="col-12 col-md-4">
-      <div class="card">
-        <img class="card-img" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{ pessoa.profilePath }}" alt="">
-      </div>
-    </div>
-    &nbsp;
-    <div class="col-12 col-md-7">
-      <div class="card">
-  
-        <div class="card-header">
-            <div class="row">
-            <div class="col">
-                <h5 class="card-title">{{ pessoa?.name }}</h5>
-                </div>
-                <div class="col-2">
-                  <a (click)="goEditPessoa(pessoa)"><span class="btn btn-primary btn-sm float-right"><a
-                        id="btnText">Editar</a></span></a>
-                </div>
-              <div class="col-2.5">
-                <a [routerLink]="['editar']"><span class="btn btn-primary btn-sm float-right"><a id="btnText">Read Only</a></span></a>
-            </div>
-            <div class="col-2">
-              <a (click)="deletePerson(pessoa)"><span class="btn btn-primary btn-sm float-right"><a id="btnText">Deletar</a></span></a>
-          </div>
-              </div>
-            </div>
-  
-        <div class="card-body">
-          <p class="card-title text-justify"><strong>Gênero:</strong> {{ pessoa?.gender }}</p>
-          <p class="card-title text-justify"><strong>Altura:</strong> {{ pessoa?.height }}</p>
-          <p class="card-title text-justify"><strong>País:</strong> {{ pessoa?.hometown }}</p>
-          <p class="card-title text-justify"><strong>Cidade:</strong> {{ pessoa?.country }}</p>
-          <p><strong>Participações:</strong> </p>
-          <div class="d-inline-block" *ngFor="let participation of pessoa?.participations">
-            <span class="badge badge-pill badge-primary" (event)="getParticipation()">{{ participation?.department }} em {{ participation?.id }}</span>
-          </div>
-          <br /> <br />
-        </div>
-      </div>
+  <div class="col-12 col-md-4">
+    <div class="card">
+      <img class="card-img" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{ pessoa.profilePath }}"
+        onerror="this.src='./../../../../assets/default-staff-2.jpg'" alt="">
     </div>
   </div>
-
-  
-<br>
-
-<div class="col-12 col-md-12">
+  &nbsp;
+  <div class="col-12 col-md-7">
     <div class="card">
 
       <div class="card-header">
         <div class="row">
           <div class="col">
-            <h3 class="card-title">Filmes</h3>
+            <h5 class="card-title">{{ pessoa?.name }}</h5>
           </div>
+          <div class="col-2">
+            <a (click)="goEditPessoa(pessoa)"><span class="btn btn-primary btn-sm float-right"><a
+                  id="btnText">Editar</a></span></a>
+          </div>
+          <div class="col-2.5">
+            <a [routerLink]="['editar']"><span class="btn btn-primary btn-sm float-right"><a id="btnText">Read
+                  Only</a></span></a>
+          </div>
+          <div class="col-2">
+            <a (click)="deletePerson(pessoa)"><span class="btn btn-primary btn-sm float-right"><a
+                  id="btnText">Deletar</a></span></a>
           </div>
         </div>
       </div>
 
       <div class="card-body">
-        <div class="container">
-    <div class="col-12 col-md-12">
+        <p class="card-title text-justify"><strong>Gênero:</strong> {{ pessoa?.gender }}</p>
+        <p class="card-title text-justify"><strong>Altura:</strong> {{ pessoa?.height }}</p>
+        <p class="card-title text-justify"><strong>País:</strong> {{ pessoa?.hometown }}</p>
+        <p class="card-title text-justify"><strong>Cidade:</strong> {{ pessoa?.country }}</p>
+        <br /> <br />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br>
+
+<div class="col-12 col-md-12">
+  <div class="card">
+
+    <div class="card-header">
+      <div class="row">
+        <div class="col">
+          <h3 class="card-title">Filmes</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="container">
+      <div class="col-12 col-md-12">
         <div class="card-header">
-        <div class="card-columns">
-          <div class="card bg-dark text-white" (click)="goProgram(person.person.id)" *ngFor="let person of pessoa?.participations">
-            <img class="card-img"
-                src="https://image.tmdb.org/t/p/w250_and_h141_face{{ person?.program?.backdropPath }}" alt="_blank" />
-            <div class="card-img-overlay-bottom">
-              <p class="card-title">{{ person?.program?.title }}</p>
+          <div class="card-columns">
+            <div class="card bg-dark text-white" *ngFor="let participation of pessoa?.participations">
+              <app-participacao [id]="participation.id" [department]="participation"></app-participacao>
             </div>
           </div>
         </div>
-        </div>
       </div>
-      </div>
-      </div>
+    </div>
+  </div>
 </div>
-

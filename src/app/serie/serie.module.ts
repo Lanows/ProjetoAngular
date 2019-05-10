@@ -1,3 +1,4 @@
+import { ParticipacaoTvseriesComponent } from './../participacao-tvseries/participacao-tvseries.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SerieRoutingModule } from './serie.routing.module';
@@ -13,6 +14,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     SerieComponent,
     SerieDetailComponent,
     SerieEditComponent,
+    ParticipacaoTvseriesComponent
 
   ],
   imports: [

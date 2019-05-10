@@ -1,3 +1,4 @@
+import { ParticipacaoComponent } from './../participacao/participacao.component';
 import { CountryPipe } from './../country.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,7 +14,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     PessoaComponent,
     PessoaDetailComponent,
     PessoaEditComponent,
-    CountryPipe
+    CountryPipe,
+    ParticipacaoComponent
   ],
   imports: [
     CommonModule,
