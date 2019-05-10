@@ -22,15 +22,15 @@ export class MovieService extends BaseService {
     return this._httpClient.get(`${this.URL}/movie/6trending`);
   }
 
-  updateProgram(id, filmeAtualizado){
+  updateProgram(id, filmeAtualizado) {
     return this._httpClient.put(`${this.URL}/movie/${id}`, filmeAtualizado);
   }
 
-  deleteProgram(id: number){
+  deleteProgram(id: number) {
     return this._httpClient.delete(`${this.URL}/movie/${id}`);
   }
 
-  getMovieByTitle(title){
+  getMovieByTitle(title) {
     return this._httpClient.get(`${this.URL}/movie/title?title=${title}`);
   }
 
@@ -42,7 +42,7 @@ export class MovieService extends BaseService {
     return this._httpClient.get(`${this.URL}/movie/releasedate?date=${date}`);
   }
 
-  getParticipation(id){
+  getParticipation(id) {
     return this._httpClient.get(`${this.URL}/movie/participation?id=${id}`);
   }
 }

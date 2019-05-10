@@ -1,7 +1,5 @@
-<img class="card-img"
-                src="https://image.tmdb.org/t/p/w250_and_h141_face{{ movie?.backdropPath }}" 
-                onerror="this.src='./../../../../assets/default-staff-2.jpg'" alt="_blank" 
-                (click)="goProgram(movie?.id)"/>
-            <div class="card-img-overlay-bottom">
-              <p class="card-title">{{ department.department }} em {{ movie?.title }}</p>
-            </div>
+<img class="card-img" src="https://image.tmdb.org/t/p/w250_and_h141_face{{ movie?.backdropPath }}"
+  onerror="this.src='./../../../../assets/default-staff-2.jpg'" alt="_blank" (click)="goProgram(movie?.id)" />
+<div class="card-img-overlay-bottom">
+  <p class="card-title">{{ department.department }} em {{ movie?.title }}</p>
+</div>

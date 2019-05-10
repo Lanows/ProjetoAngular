@@ -13,11 +13,11 @@ export class PessoaDetailComponent implements OnInit {
   constructor(private _activatedRoute: ActivatedRoute,
     private _pessoaService: PessoaService,
     private _router: Router,
-    private  location: Location){ }
+    private location: Location) { }
 
   pessoa = {}
-  
-  
+
+
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
       let id = params['id'];
@@ -33,11 +33,11 @@ export class PessoaDetailComponent implements OnInit {
     this._router.navigate(['pessoas/detalhes/edit', pessoa.id])
   }
 
-  deletePerson(pessoa){
+  deletePerson(pessoa) {
     let deletar = confirm("Tem certeza que deseja deletar essa Pessoa?");
-    if(deletar){
-       this._pessoaService.deletePerson(pessoa.id).subscribe();
-       this.location.back();
+    if (deletar) {
+      this._pessoaService.deletePerson(pessoa.id).subscribe();
+      this.location.back();
     }
-   }
+  }
 }

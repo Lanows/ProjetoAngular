@@ -12,12 +12,12 @@ export class MovieDetailComponent implements OnInit {
 
   @Input() id: string;
   @Input() department: any;
-  
+
   constructor(private _activatedRoute: ActivatedRoute,
     private _movieService: MovieService,
     private _router: Router,
     private location: Location) { }
-    
+
   movie = {}
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
@@ -33,15 +33,15 @@ export class MovieDetailComponent implements OnInit {
     this._router.navigate(['filmes/detalhes/edit', movie.id])
   }
 
-  goPerson(id){
+  goPerson(id) {
     this._router.navigate(['pessoas/detalhes/', id]);
   }
 
-  deleteProgram(movie){
-   let deletar = confirm("Tem certeza que deseja deletar esse filme?");
-   if(deletar){
+  deleteProgram(movie) {
+    let deletar = confirm("Tem certeza que deseja deletar esse filme?");
+    if (deletar) {
       this._movieService.deleteProgram(movie.id).subscribe();
       this.location.back();
-   }
+    }
   }
 }

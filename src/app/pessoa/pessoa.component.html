@@ -3,7 +3,8 @@
   <form>
     <div class="row">
       <div class="col">
-        <input type="text" placeholder="Insira o nome do que deseja pesquisar" class="form-control" (input)="goSearch($event.target.value)">
+        <input type="text" placeholder="Insira o nome do que deseja pesquisar" class="form-control"
+          (input)="goSearch($event.target.value)">
       </div>
       <div class="col-4">
         <select name="selectType" class="form-control" (change)="funcaoSelect($event.target.value)">
@@ -19,13 +20,13 @@
 <br>
 
 <div class="col-12">
-    <div class="card-columns">
-      <div class="card bg-dark text-white" (click)="goEdit(pessoa)" *ngFor="let pessoa of pessoas">
-        <img class="card-img" src="https://image.tmdb.org/t/p/w250_and_h141_face{{ pessoa?.profilePath }}" 
+  <div class="card-columns">
+    <div class="card bg-dark text-white" (click)="goEdit(pessoa)" *ngFor="let pessoa of pessoas">
+      <img class="card-img" src="https://image.tmdb.org/t/p/w250_and_h141_face{{ pessoa?.profilePath }}"
         onerror="this.src='./../../../../assets/default-staff-2.jpg'" alt="_blank" />
-        <div class="card-img-overlay-bottom">
-          <p class="card-title">{{ pessoa?.name }}</p>
-        </div>
+      <div class="card-img-overlay-bottom">
+        <p class="card-title">{{ pessoa?.name }}</p>
       </div>
     </div>
   </div>
+</div>

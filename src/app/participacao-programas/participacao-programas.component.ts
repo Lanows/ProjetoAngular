@@ -11,11 +11,11 @@ export class ParticipacaoProgramasComponent implements OnInit {
 
   @Input() id: string;
   @Input() department: any;
-  
+
   constructor(private _activatedRoute: ActivatedRoute,
-    private  _pessoaService: PessoaService,
+    private _pessoaService: PessoaService,
     private _router: Router) { }
-    
+
   pessoa = {}
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class ParticipacaoProgramasComponent implements OnInit {
     });
   }
 
-  goPerson(pessoaId){
+  goPerson(pessoaId) {
     this._router.navigate(['pessoas/detalhes', pessoaId]);
   }
 }

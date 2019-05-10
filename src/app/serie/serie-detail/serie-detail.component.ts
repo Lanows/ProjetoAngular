@@ -30,14 +30,14 @@ export class SerieDetailComponent implements OnInit {
     this._router.navigate(['series/detalhes/edit', movie.id])
   }
 
-  goPerson(id){
+  goPerson(id) {
     this._router.navigate(['pessoas/detalhes/', id]);
   }
-  deleteProgram(movie){
+  deleteProgram(movie) {
     let deletar = confirm("Tem certeza que deseja deletar essa Serie?");
-    if(deletar){
-       this._serieService.deleteProgram(movie.id).subscribe();
-       this.location.back();
+    if (deletar) {
+      this._serieService.deleteProgram(movie.id).subscribe();
+      this.location.back();
     }
-   }
+  }
 }

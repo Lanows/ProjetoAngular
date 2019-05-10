@@ -11,11 +11,11 @@ export class ParticipacaoComponent implements OnInit {
 
   @Input() id: string;
   @Input() department: any;
-  
+
   constructor(private _activatedRoute: ActivatedRoute,
     private _movieService: MovieService,
     private _router: Router) { }
-    
+
   movie = {}
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class ParticipacaoComponent implements OnInit {
     });
   }
 
-  goProgram(Movieid){
+  goProgram(Movieid) {
     this._router.navigate(['filmes/detalhes', Movieid]);
   }
 }

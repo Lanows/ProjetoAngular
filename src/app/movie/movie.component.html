@@ -3,7 +3,8 @@
   <form>
     <div class="row">
       <div class="col">
-        <input type="text" placeholder="Insira o nome do que deseja pesquisar" class="form-control" (input)="goSearch($event.target.value)">
+        <input type="text" placeholder="Insira o nome do que deseja pesquisar" class="form-control"
+          (input)="goSearch($event.target.value)">
       </div>
       <div class="col-4">
         <select name="selectType" class="form-control" (change)="funcaoSelect($event.target.value)">
@@ -22,13 +23,12 @@
 <div class="col-12">
   <div class="card-columns">
     <div class="card bg-dark text-white" (click)="goEdit(movie)" *ngFor="let movie of movies">
-     <img class="card-img"
-          src="https://image.tmdb.org/t/p/w250_and_h141_face{{ movie.backdropPath }}" 
-          onerror="this.src='./../../../../assets/default-staff-2.jpg'" alt="_blank" />
+      <img class="card-img" src="https://image.tmdb.org/t/p/w250_and_h141_face{{ movie.backdropPath }}"
+        onerror="this.src='./../../../../assets/default-staff-2.jpg'" alt="_blank" />
       <div class="card-img-overlay-bottom">
         <p class="card-title">{{ movie.title }}</p>
       </div>
     </div>
   </div>
 </div>
-<ngb-pagination class="d-flex justify-content-center"  [collectionSize]="120" [(page)]="page" [pageSize]="9" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+<!-- <ngb-pagination class="d-flex justify-content-center"  [collectionSize]="120" [(page)]="page" [pageSize]="9" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination> -->

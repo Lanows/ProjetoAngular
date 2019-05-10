@@ -27,16 +27,16 @@ export class MovieComponent implements OnInit {
 
     this._router.navigate(['filmes/detalhes', movie.id])
   }
-  
-  goSearch(value){
-    if(this.search == "titulo") {
-        this._movieService.getMovieByTitle(value).subscribe(
-          response => {
-            this.movies = response['content'];
-          }
-        )
+
+  goSearch(value) {
+    if (this.search == "titulo") {
+      this._movieService.getMovieByTitle(value).subscribe(
+        response => {
+          this.movies = response['content'];
+        }
+      )
     }
-    else if(this.search == "ano") {
+    else if (this.search == "ano") {
       this._movieService.getMovieByReleaseDate(value).subscribe(
         response => {
           this.movies = response['content'];
@@ -49,10 +49,10 @@ export class MovieComponent implements OnInit {
           this.movies = response['content'];
         }
       )
-    }  
+    }
   }
 
-  funcaoSelect(value){
-    this.search =value;
+  funcaoSelect(value) {
+    this.search = value;
   }
 }

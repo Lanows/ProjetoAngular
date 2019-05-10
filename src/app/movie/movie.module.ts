@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppModule } from './../app.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -23,9 +24,10 @@ import { ParticipacaoProgramasModule } from '../participacao-programas/participa
     CommonModule,
     MovieRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
-  providers:[
+  providers: [
     MovieService
   ],
   exports: []
